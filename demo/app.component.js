@@ -13,9 +13,26 @@ var common_1 = require('@angular/common');
 var ng2_datetime_1 = require('../src/ng2-datetime/ng2-datetime');
 var AppComponent = (function () {
     function AppComponent() {
-        this.date = new Date();
-        this.date2 = new Date(2016, 6, 8, 10, 0);
+        this.date2 = new Date(2016, 5, 10);
+        this.datepickerOpts = {
+            startDate: new Date(2016, 5, 10),
+            autoclose: true,
+            todayBtn: 'linked',
+            todayHighlight: true,
+            assumeNearbyYear: true,
+            format: 'D, d MM yyyy'
+        };
+        this.date5 = new Date();
+        this.datepickerToOpts = {};
     }
+    AppComponent.prototype.handleDateFromChange = function (dateFrom) {
+        // update the model
+        this.dateFrom = dateFrom;
+        // do not mutate the object or angular won't detect the changes
+        this.datepickerToOpts = {
+            startDate: dateFrom
+        };
+    };
     AppComponent.prototype.getDate = function (dt) {
         return dt && dt.getTime();
     };
