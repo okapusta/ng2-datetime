@@ -22,7 +22,7 @@ declare var jQuery: any;
 })
 export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestroy {
     @Output()
-    dateChange:EventEmitter<Date> = new EventEmitter();
+    dateChange:EventEmitter<any> = new EventEmitter();
     @Input('timepicker')
     timepickerOptions:any = {};
     @Input('datepicker')
